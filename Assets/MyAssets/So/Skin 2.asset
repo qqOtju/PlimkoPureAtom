@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f3a7bde73642009b2e5f2f37f3a780, type: 3}
+  m_Name: Skin 2
+  m_EditorClassIdentifier: 
+  _id: 1
+  _name: Signs
+  _electronSprite: {fileID: 21300000, guid: 3ec58b8f941574b44b64ea8e47211bcb, type: 3}
+  _electronColor: {r: 1, g: 1, b: 1, a: 1}
+  _protonSprite: {fileID: 21300000, guid: 2ae5274b2c787744685e4110037f20a0, type: 3}
+  _protonColor: {r: 1, g: 1, b: 1, a: 1}
+  _price: 10
