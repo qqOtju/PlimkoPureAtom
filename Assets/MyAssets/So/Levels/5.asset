@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: 5
   m_EditorClassIdentifier: 
   _id: 4
-  _protonsCount: 10
-  _electronsCount: 10
-  _sceneObjects: {fileID: 7472725131733561521, guid: 77d22ebbba7e01e40b005a3551f181f2, type: 3}
+  _goal: HCl
+  _goalSprite: {fileID: 21300000, guid: 2cd8b7ab32c5aef468efaf78fb7a2461, type: 3}
+  _protonsCount: 1
+  _electronsCount: 6
+  _sceneObjects: {fileID: 7472725131733561521, guid: 4bcacebaf9a3a16458b6e6d578938d9e, type: 3}
   _sceneObjectsPosition: {x: -1.055, y: 0.605, z: 0}
   _mainCircleCount: 3
-  _newCircleCount: 2
+  _newCircleCount: 1
   _newCircleElectronsCount: 1
