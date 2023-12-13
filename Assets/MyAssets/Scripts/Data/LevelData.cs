@@ -22,6 +22,7 @@ namespace MyAssets.Scripts.Data
         public LevelData(LevelSO level)
         {
             LevelSO = level;
+            // LevelState = LevelState.Locked;
             LevelState = (LevelState) PlayerPrefs.
                 GetInt($"{LevelNumberKey}{level.ID}", 0);
             if (level.ID == 0 && LevelState != LevelState.Completed)

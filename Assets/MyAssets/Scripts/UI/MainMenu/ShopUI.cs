@@ -58,7 +58,13 @@ namespace MyAssets.Scripts.UI.MainMenu
         {
             _soundManager.PlayButtonClick();
             var ability = _abilitiesData[index];
-            if(ability == _data.Skins.CurrentSkin) return;
+            if(_data.Skins.SkinsState[ability] == SkinState.Equipped) return;
+            if(_data.Skins.SkinsState[ability] == SkinState.Unlocked)
+            {
+                _data.Skins.EquipSkin(ability);
+                UpdateButtons();
+                return;
+            }
             if(_data.Gold.GoldCount < ability.Price) return;
             _data.Gold.GoldCount -= ability.Price;
             _data.Skins.UnlockSkin(ability);
@@ -78,14 +84,19 @@ namespace MyAssets.Scripts.UI.MainMenu
             foreach (var abilityData in _data.Skins.Skins)
             {
                 var id = abilityData.ID;
-                if(_data.Skins.CurrentSkin == abilityData)
+                if (_data.Skins.SkinsState[abilityData] == SkinState.Equipped)
+                {
                     _prices[id].text = "Equipped";
-                else if(_data.Gold.GoldCount < abilityData.Price)
-                    _buyButtons[id].interactable = false;
-                else
+                }
+                else if(_data.Skins.SkinsState[abilityData] == SkinState.Unlocked)
+                {
+                    _prices[id].text = "Equip";
+                    _buyButtons[id].interactable = true;
+                }
+                else if(_data.Skins.SkinsState[abilityData] == SkinState.Locked)
                 {
                     _prices[id].text = abilityData.Price.ToString();
-                    _buyButtons[id].interactable = true;
+                    _buyButtons[id].interactable = _data.Gold.GoldCount >= abilityData.Price;
                 }
             }
         }

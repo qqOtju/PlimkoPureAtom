@@ -18,7 +18,7 @@ namespace MyAssets.Scripts.Data
             Skins = skinsSO;
             foreach (var skin in Skins)
             {
-                var state = PlayerPrefs.GetInt($"{CurrentSkinKey}{skin.ID}", 1);
+                var state = PlayerPrefs.GetInt($"{CurrentSkinKey}{skin.ID}", 0);
                 SkinsState.Add(skin, (SkinState) state);
                 if (state == (int) SkinState.Equipped)
                     CurrentSkin = skin;
@@ -35,6 +35,14 @@ namespace MyAssets.Scripts.Data
         {
             SkinsState[skin] = SkinState.Unlocked;
             PlayerPrefs.SetInt($"{CurrentSkinKey}{skin.ID}", (int) SkinState.Unlocked);
+        }
+        
+        public void EquipSkin(SkinSO skin)
+        {
+            SkinsState[CurrentSkin] = SkinState.Unlocked;
+            SkinsState[skin] = SkinState.Equipped;
+            PlayerPrefs.SetInt($"{CurrentSkinKey}{CurrentSkin.ID}", (int) SkinState.Unlocked);
+            PlayerPrefs.SetInt($"{CurrentSkinKey}{skin.ID}", (int) SkinState.Equipped);
             CurrentSkin = skin;
         }
     }

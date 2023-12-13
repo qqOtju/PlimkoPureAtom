@@ -1,6 +1,5 @@
 ﻿using MyAssets.Scripts.Data;
 using UnityEngine;
-using Zenject;
 
 namespace MyAssets.Scripts.GameLogic
 {
@@ -8,8 +7,7 @@ namespace MyAssets.Scripts.GameLogic
     {
         [SerializeField] protected SpriteRenderer _sr;
         
-        [Inject]
-        public virtual void Construct(GameData gameData)
+        public void Init(GameData gameData)
         {
             _sr.sprite = gameData.Skins.CurrentSkin.ProtonSprite;
             _sr.color = gameData.Skins.CurrentSkin.ProtonColor;

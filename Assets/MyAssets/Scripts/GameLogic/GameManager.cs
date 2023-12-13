@@ -26,6 +26,7 @@ namespace MyAssets.Scripts.GameLogic
             _gameData = gameData;
             var pos = gameData.CurrentLevel.LevelSO.SceneObjectsPosition;
             _sceneObjects = Instantiate(gameData.CurrentLevel.LevelSO.SceneObjects, pos, Quaternion.identity);
+            _sceneObjects.Init(gameData);
             _sceneObjects.MainCircle.OnMainElectronObtained += OnMainCircleCollision;
         }
 
